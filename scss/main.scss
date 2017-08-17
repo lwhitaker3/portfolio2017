@@ -1,0 +1,509 @@
+$header-font:       'Montserrat', sans-serif;
+$body-font:         'Raleway', sans-serif;
+$primary-color:     #E72264;
+$secondary-color:   #F58A29;
+$dark-color:        #263238;
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $header-font
+}
+body{
+  font-family: $body-font;
+  font-weight: 400;
+}
+h1{
+  font-size: 36px;
+  color: $primary-color;
+  text-transform: uppercase;
+}
+
+
+
+/*MENU ANIMATION*/
+.navbar{
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+  a.navbar-brand{
+    padding: 0;
+  }
+  .nav-link{
+    color: $dark-color;
+  }
+  #logo-wrapper{
+    height: 50px;
+    #logo-name{
+      height:50px;
+    }
+    svg{
+      path{
+        stroke-width: 2;
+        stroke-linecap: round;
+      }
+
+    }
+    svg:hover{
+      #stroke .louise {
+        stroke-dasharray: 600;
+        stroke-dashoffset: 600;
+        stroke-width: 2.5;
+        -webkit-animation: logo-louise 1s linear forwards .5s;
+                animation: logo-louise 1s linear forwards .5s;
+      }
+      .name-hearts path{
+        stroke-dasharray: 50;
+        stroke-dashoffset: 50;
+      }
+      .name-hearts .heart1-2{
+        -webkit-animation: logo-hearts 1s linear forwards 1.5s;
+                animation: logo-hearts 1s linear forwards 1.5s;
+      }
+      .name-hearts .heart1-1{
+        -webkit-animation: logo-hearts 1s linear forwards 2s;
+                animation: logo-hearts 1s linear forwards 2s;
+      }
+    }
+  }
+  &.animated {
+    transition: all 0.5s ease;
+  }
+  &.slideDown {
+    transform: translateY(0);
+  }
+  &.slideUp {
+    transform: translateY(-100%);
+  }
+}
+/*END MENU ANIMATION*/
+
+@-webkit-keyframes logo-louise {
+  0% {
+    stroke-dashoffset: 600;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 2.5;
+  }
+}
+
+@keyframes logo-louise {
+  0% {
+    stroke-dashoffset: 600;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 2.5;
+  }
+}
+@-webkit-keyframes logo-hearts{
+  0% {
+    stroke-dashoffset: 50;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 2;
+  }
+}
+@keyframes logo-hearts {
+  0% {
+    stroke-dashoffset: 50;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 2;
+  }
+}
+
+.jumbotron{
+  background-color: #e72264;
+  background-image: linear-gradient(135deg, $primary-color 30%, $secondary-color 70%);
+  position: fixed;
+  /* do not overlap the header */
+  top: 0;
+  left: 0;
+  width: 100%;
+  // height: 100vh;
+  min-height: 500px;
+  margin-top: 0;
+  z-index: -1;
+  text-align: center;
+  border: 10px solid white;
+  p{
+    color: white;
+  }
+  #intro-image{
+    width: 100px;
+  }
+  #svgWrapper{
+    width: 60%;
+    height: auto;
+    margin: auto;
+    svg{
+      #stroke{
+        stroke-linecap: round;
+        shape-rendering: geometricPrecision;
+        .louise{
+          stroke-dasharray: 2400;
+          stroke-dashoffset: 2400;
+          stroke-width: 8;
+          -webkit-animation: name-louise 2s linear forwards .5s;
+                  animation: name-louise 2s linear forwards .5s;
+        }
+        .r {
+          stroke-dasharray: 1200;
+          stroke-dashoffset: 1200;
+          stroke-width: 8;
+          -webkit-animation: name-r .75s linear forwards 2.5s;
+                  animation: name-r .75s linear forwards 2.5s;
+        }
+        .w {
+          stroke-dasharray: 1200;
+          stroke-dashoffset: 1200;
+          stroke-width: 8;
+          -webkit-animation: name-w .75s linear forwards 3.25s;
+                  animation: name-w .75s linear forwards 3.25s;
+        }
+        .hitaker {
+          stroke-dasharray: 2400;
+          stroke-dashoffset: 2400;
+          stroke-width: 8;
+          -webkit-animation: name-hitaker 2s linear forwards 4s;
+                  animation: name-hitaker 2s linear forwards 4s;
+        }
+        .t-cross {
+          stroke-dasharray: 400;
+          stroke-dashoffset: 400;
+          stroke-width: 8;
+          -webkit-animation: name-t-cross 1s linear forwards 5.7s;
+                  animation: name-t-cross 1s linear forwards 5.7s;
+        }
+      }
+      .name-hearts{
+        path{
+          stroke-dasharray: 400;
+          stroke-dashoffset: 400;
+          stroke-width: 7;
+          stroke-linecap: round;
+        }
+        .heart1-2{
+          -webkit-animation: name-hearts 1s linear forwards 6.7s;
+                  animation: name-hearts 1s linear forwards 6.7s;
+        }
+        .heart1-1{
+          -webkit-animation: name-hearts 1s linear forwards 7.7s;
+                  animation: name-hearts 1s linear forwards 7.7s;
+        }
+        .heart2-2{
+          -webkit-animation: name-hearts 1s linear forwards 8.7s;
+                  animation: name-hearts 1s linear forwards 8.7s;
+        }
+        .heart2-1{
+          -webkit-animation: name-hearts 1s linear forwards 9.7s;
+                  animation: name-hearts 1s linear forwards 9.7s;
+        }
+      }
+    }
+  }
+}
+.page-content{
+  background-color: white;
+  z-index: 2;
+  margin-top: 550px;
+}
+
+
+
+/*HANDWRITING ANIMATION*/
+@-webkit-keyframes name-louise {
+  0% {
+    stroke-dashoffset: 2400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 9;
+  }
+}
+
+@keyframes name-louise {
+  0% {
+    stroke-dashoffset: 2400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 9;
+  }
+}
+@-webkit-keyframes name-r {
+  0% {
+    stroke-dashoffset: 1200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 9;
+  }
+}
+@keyframes name-r {
+  0% {
+    stroke-dashoffset: 1200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 9;
+  }
+}
+@-webkit-keyframes name-w {
+  0% {
+    stroke-dashoffset: 1200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 9;
+  }
+}
+@keyframes name-w {
+  0% {
+    stroke-dashoffset: 1200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 9;
+  }
+}
+@-webkit-keyframes name-hitaker {
+  0% {
+    stroke-dashoffset: 2400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 9;
+  }
+}
+
+@keyframes name-hitaker {
+  0% {
+    stroke-dashoffset: 2400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 9;
+  }
+}
+@-webkit-keyframes name-t-cross{
+  0% {
+    stroke-dashoffset: 400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 9;
+  }
+}
+
+@keyframes name-t-cross {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 9;
+  }
+}
+
+@-webkit-keyframes name-hearts{
+  0% {
+    stroke-dashoffset: 400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 7;
+  }
+}
+@keyframes name-hearts {
+  0% {
+    stroke-dashoffset: 400;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 7;
+  }
+}
+/*END HANDWRITING ANIMATION*/
+
+
+.hvr-overline-from-center {
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: 0.3s ease-in-out color;
+  -moz-transition: 0.3s ease-in-out color;
+  transition: 0.3s ease-in-out color;
+  &:before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    height: 2px;
+    -webkit-transition-property: left, right;
+    transition-property: left, right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    background: $primary-color;
+  }
+}
+.hvr-overline-from-center:hover, .hvr-overline-from-center:focus, .hvr-overline-from-center:active, .hvr-overline-from-center.active {
+  color: $primary-color;
+}
+.hvr-overline-from-center:hover:before, .hvr-overline-from-center:focus:before, .hvr-overline-from-center:active:before, .hvr-overline-from-center.active:before {
+  left: 0;
+  right: 0;
+}
+
+.section-divider{
+  display: block;
+  margin: auto;
+  width: 40px;
+  margin-top: 50px;
+}
+
+.main-page-section{
+  margin: 100px auto;
+}
+.section-intro{
+  h1{
+    margin-bottom: 50px;
+  }
+  p{
+    margin-bottom: 100px;
+  }
+}
+
+a.hoverlink {
+  color: $primary-color;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  padding: 0 .2em;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+  z-index: 2;
+  &:before {
+    content: "";
+    z-index: -1;
+    width: 100%;
+    height: 0%;
+    background: rgba($primary-color, 0.10);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 2px;
+    -webkit-transition: height 250ms;
+    transition: height 250ms;
+  }
+  &:hover {
+    border-color: transparent;
+  }
+  &:hover:before {
+    height: 100%;
+  }
+}
+button {
+    text-align: center;
+    cursor: default;
+    color: transparent;
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 0;
+    border-width: 0;
+}
+.button{
+  .button-link{
+    cursor: pointer;
+    display: block;
+    font-weight: 400;
+    line-height: 45px;
+    max-width: 160px;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 100%;
+    color: $primary-color;
+    -webkit-transition: 0.3s ease-in-out all;
+    -moz-transition: 0.3s ease-in-out all;
+    transition: 0.3s ease-in-out all;
+    svg{
+      height: 45px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    rect{
+      fill: none;
+      stroke: $primary-color;
+      stroke-width: 4;
+      stroke-dasharray: 422, 0;
+      -webkit-transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+      -moz-transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+  &:hover{
+    background: rgba(255, 99, 71, 0);
+    letter-spacing: 1px;
+  }
+  &:hover rect{
+    stroke-dasharray: 15, 310;
+    stroke-dashoffset: 48;
+  }
+}
+
+// FOOTER STYLES
+#logo-wrapper2{
+  height: 50px;
+  #logo-name{
+    height:50px;
+  }
+  svg{
+    path{
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+  }
+  svg:hover{
+    #stroke .louise {
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      stroke-width: 2.5;
+      -webkit-animation: logo-louise 1s linear forwards .5s;
+              animation: logo-louise 1s linear forwards .5s;
+    }
+    .name-hearts path{
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+    }
+    .name-hearts .heart1-2{
+      -webkit-animation: logo-hearts 1s linear forwards 1.5s;
+              animation: logo-hearts 1s linear forwards 1.5s;
+    }
+    .name-hearts .heart1-1{
+      -webkit-animation: logo-hearts 1s linear forwards 2s;
+              animation: logo-hearts 1s linear forwards 2s;
+    }
+  }
+}
