@@ -63,3 +63,10 @@ $("#main-nav ul li a[href^='#']").on('click', function(e) {
      });
 
 });
+
+$('#back-to-top').on('click', function (e) {
+    e.preventDefault();
+    $('html,body').animate({
+        scrollTop: 0
+    }, 700);
+});

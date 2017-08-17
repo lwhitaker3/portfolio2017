@@ -134,3 +134,12 @@
 .icon-up:before {
   content: "\46";
 }
+.icon-github-filled:before {
+  content: "\48";
+}
+.icon-linkedin-filled:before {
+  content: "\47";
+}
+.icon-email-filled:before {
+  content: "\49";
+}
