@@ -5,7 +5,7 @@ $secondary-color:   #F58A29;
 $dark-color:        #263238;
 
 h1, h2, h3, h4, h5, h6{
-  font-family: $header-font
+  font-family: $header-font;
 }
 body{
   font-family: $body-font;
@@ -116,101 +116,112 @@ h1{
   }
 }
 
-.jumbotron{
-  background-color: #e72264;
-  background-image: linear-gradient(135deg, $primary-color 30%, $secondary-color 70%);
-  position: fixed;
-  /* do not overlap the header */
-  top: 0;
-  left: 0;
-  width: 100%;
-  // height: 100vh;
+.sticky-wrapper {
+  background-color: white;
+}
+
+.jumbotron-wrapper {
+  height: 100vh;
   min-height: 500px;
-  margin-top: 0;
-  z-index: -1;
-  text-align: center;
-  border: 10px solid white;
-  p{
-    color: white;
-  }
-  #intro-image{
-    width: 100px;
-  }
-  #svgWrapper{
-    width: 60%;
-    height: auto;
-    margin: auto;
-    svg{
-      #stroke{
-        stroke-linecap: round;
-        shape-rendering: geometricPrecision;
-        .louise{
-          stroke-dasharray: 2400;
-          stroke-dashoffset: 2400;
-          stroke-width: 8;
-          -webkit-animation: name-louise 2s linear forwards .5s;
-                  animation: name-louise 2s linear forwards .5s;
-        }
-        .r {
-          stroke-dasharray: 1200;
-          stroke-dashoffset: 1200;
-          stroke-width: 8;
-          -webkit-animation: name-r .75s linear forwards 2.5s;
-                  animation: name-r .75s linear forwards 2.5s;
-        }
-        .w {
-          stroke-dasharray: 1200;
-          stroke-dashoffset: 1200;
-          stroke-width: 8;
-          -webkit-animation: name-w .75s linear forwards 3.25s;
-                  animation: name-w .75s linear forwards 3.25s;
-        }
-        .hitaker {
-          stroke-dasharray: 2400;
-          stroke-dashoffset: 2400;
-          stroke-width: 8;
-          -webkit-animation: name-hitaker 2s linear forwards 4s;
-                  animation: name-hitaker 2s linear forwards 4s;
-        }
-        .t-cross {
-          stroke-dasharray: 400;
-          stroke-dashoffset: 400;
-          stroke-width: 8;
-          -webkit-animation: name-t-cross 1s linear forwards 5.7s;
-                  animation: name-t-cross 1s linear forwards 5.7s;
-        }
-      }
-      .name-hearts{
-        path{
-          stroke-dasharray: 400;
-          stroke-dashoffset: 400;
-          stroke-width: 7;
+  position: relative;
+    
+  .jumbotron{
+    background-color: #e72264;
+    background-image: linear-gradient(135deg, $primary-color 30%, $secondary-color 70%);    
+    position: fixed;
+    /* do not overlap the header */
+    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    text-align: center;
+    border: 10px solid white;
+    margin-bottom: 0;
+    
+    p{
+      color: white;
+    }
+    #intro-image{
+      width: 100px;
+    }
+    #svgWrapper{
+      width: 60%;
+      height: auto;
+      margin: auto;
+      svg{
+        #stroke{
           stroke-linecap: round;
+          shape-rendering: geometricPrecision;
+          .louise{
+            stroke-dasharray: 2400;
+            stroke-dashoffset: 2400;
+            stroke-width: 8;
+            -webkit-animation: name-louise 2s linear forwards .5s;
+                    animation: name-louise 2s linear forwards .5s;
+          }
+          .r {
+            stroke-dasharray: 1200;
+            stroke-dashoffset: 1200;
+            stroke-width: 8;
+            -webkit-animation: name-r .75s linear forwards 2.5s;
+                    animation: name-r .75s linear forwards 2.5s;
+          }
+          .w {
+            stroke-dasharray: 1200;
+            stroke-dashoffset: 1200;
+            stroke-width: 8;
+            -webkit-animation: name-w .75s linear forwards 3.25s;
+                    animation: name-w .75s linear forwards 3.25s;
+          }
+          .hitaker {
+            stroke-dasharray: 2400;
+            stroke-dashoffset: 2400;
+            stroke-width: 8;
+            -webkit-animation: name-hitaker 2s linear forwards 4s;
+                    animation: name-hitaker 2s linear forwards 4s;
+          }
+          .t-cross {
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+            stroke-width: 8;
+            -webkit-animation: name-t-cross 1s linear forwards 5.7s;
+                    animation: name-t-cross 1s linear forwards 5.7s;
+          }
         }
-        .heart1-2{
-          -webkit-animation: name-hearts 1s linear forwards 6.7s;
-                  animation: name-hearts 1s linear forwards 6.7s;
-        }
-        .heart1-1{
-          -webkit-animation: name-hearts 1s linear forwards 7.7s;
-                  animation: name-hearts 1s linear forwards 7.7s;
-        }
-        .heart2-2{
-          -webkit-animation: name-hearts 1s linear forwards 8.7s;
-                  animation: name-hearts 1s linear forwards 8.7s;
-        }
-        .heart2-1{
-          -webkit-animation: name-hearts 1s linear forwards 9.7s;
-                  animation: name-hearts 1s linear forwards 9.7s;
+        .name-hearts{
+          path{
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+            stroke-width: 7;
+            stroke-linecap: round;
+          }
+          .heart1-2{
+            -webkit-animation: name-hearts 1s linear forwards 6.7s;
+                    animation: name-hearts 1s linear forwards 6.7s;
+          }
+          .heart1-1{
+            -webkit-animation: name-hearts 1s linear forwards 7.7s;
+                    animation: name-hearts 1s linear forwards 7.7s;
+          }
+          .heart2-2{
+            -webkit-animation: name-hearts 1s linear forwards 8.7s;
+                    animation: name-hearts 1s linear forwards 8.7s;
+          }
+          .heart2-1{
+            -webkit-animation: name-hearts 1s linear forwards 9.7s;
+                    animation: name-hearts 1s linear forwards 9.7s;
+          }
         }
       }
     }
   }
 }
+
 .page-content{
   background-color: white;
   z-index: 2;
-  margin-top: 550px;
+  padding-top: 50px;
 }
 
 
@@ -380,8 +391,9 @@ h1{
 }
 
 .main-page-section{
-  margin: 100px auto;
+  margin: 0 auto 100px;
 }
+
 .section-intro{
   h1{
     margin-bottom: 50px;

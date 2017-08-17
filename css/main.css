@@ -75,82 +75,89 @@ h1 {
   100% {
     stroke-dashoffset: 0;
     stroke-width: 2; } }
-.jumbotron {
-  background-color: #e72264;
-  background-image: linear-gradient(135deg, #E72264 30%, #F58A29 70%);
-  position: fixed;
-  /* do not overlap the header */
-  top: 0;
-  left: 0;
-  width: 100%;
+.sticky-wrapper {
+  background-color: white; }
+
+.jumbotron-wrapper {
+  height: 100vh;
   min-height: 500px;
-  margin-top: 0;
-  z-index: -1;
-  text-align: center;
-  border: 10px solid white; }
-  .jumbotron p {
-    color: white; }
-  .jumbotron #intro-image {
-    width: 100px; }
-  .jumbotron #svgWrapper {
-    width: 60%;
-    height: auto;
-    margin: auto; }
-    .jumbotron #svgWrapper svg #stroke {
-      stroke-linecap: round;
-      shape-rendering: geometricPrecision; }
-      .jumbotron #svgWrapper svg #stroke .louise {
-        stroke-dasharray: 2400;
-        stroke-dashoffset: 2400;
-        stroke-width: 8;
-        -webkit-animation: name-louise 2s linear forwards .5s;
-        animation: name-louise 2s linear forwards .5s; }
-      .jumbotron #svgWrapper svg #stroke .r {
-        stroke-dasharray: 1200;
-        stroke-dashoffset: 1200;
-        stroke-width: 8;
-        -webkit-animation: name-r .75s linear forwards 2.5s;
-        animation: name-r .75s linear forwards 2.5s; }
-      .jumbotron #svgWrapper svg #stroke .w {
-        stroke-dasharray: 1200;
-        stroke-dashoffset: 1200;
-        stroke-width: 8;
-        -webkit-animation: name-w .75s linear forwards 3.25s;
-        animation: name-w .75s linear forwards 3.25s; }
-      .jumbotron #svgWrapper svg #stroke .hitaker {
-        stroke-dasharray: 2400;
-        stroke-dashoffset: 2400;
-        stroke-width: 8;
-        -webkit-animation: name-hitaker 2s linear forwards 4s;
-        animation: name-hitaker 2s linear forwards 4s; }
-      .jumbotron #svgWrapper svg #stroke .t-cross {
+  position: relative; }
+  .jumbotron-wrapper .jumbotron {
+    background-color: #e72264;
+    background-image: linear-gradient(135deg, #E72264 30%, #F58A29 70%);
+    position: fixed;
+    /* do not overlap the header */
+    bottom: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    text-align: center;
+    border: 10px solid white;
+    margin-bottom: 0; }
+    .jumbotron-wrapper .jumbotron p {
+      color: white; }
+    .jumbotron-wrapper .jumbotron #intro-image {
+      width: 100px; }
+    .jumbotron-wrapper .jumbotron #svgWrapper {
+      width: 60%;
+      height: auto;
+      margin: auto; }
+      .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke {
+        stroke-linecap: round;
+        shape-rendering: geometricPrecision; }
+        .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke .louise {
+          stroke-dasharray: 2400;
+          stroke-dashoffset: 2400;
+          stroke-width: 8;
+          -webkit-animation: name-louise 2s linear forwards .5s;
+          animation: name-louise 2s linear forwards .5s; }
+        .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke .r {
+          stroke-dasharray: 1200;
+          stroke-dashoffset: 1200;
+          stroke-width: 8;
+          -webkit-animation: name-r .75s linear forwards 2.5s;
+          animation: name-r .75s linear forwards 2.5s; }
+        .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke .w {
+          stroke-dasharray: 1200;
+          stroke-dashoffset: 1200;
+          stroke-width: 8;
+          -webkit-animation: name-w .75s linear forwards 3.25s;
+          animation: name-w .75s linear forwards 3.25s; }
+        .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke .hitaker {
+          stroke-dasharray: 2400;
+          stroke-dashoffset: 2400;
+          stroke-width: 8;
+          -webkit-animation: name-hitaker 2s linear forwards 4s;
+          animation: name-hitaker 2s linear forwards 4s; }
+        .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke .t-cross {
+          stroke-dasharray: 400;
+          stroke-dashoffset: 400;
+          stroke-width: 8;
+          -webkit-animation: name-t-cross 1s linear forwards 5.7s;
+          animation: name-t-cross 1s linear forwards 5.7s; }
+      .jumbotron-wrapper .jumbotron #svgWrapper svg .name-hearts path {
         stroke-dasharray: 400;
         stroke-dashoffset: 400;
-        stroke-width: 8;
-        -webkit-animation: name-t-cross 1s linear forwards 5.7s;
-        animation: name-t-cross 1s linear forwards 5.7s; }
-    .jumbotron #svgWrapper svg .name-hearts path {
-      stroke-dasharray: 400;
-      stroke-dashoffset: 400;
-      stroke-width: 7;
-      stroke-linecap: round; }
-    .jumbotron #svgWrapper svg .name-hearts .heart1-2 {
-      -webkit-animation: name-hearts 1s linear forwards 6.7s;
-      animation: name-hearts 1s linear forwards 6.7s; }
-    .jumbotron #svgWrapper svg .name-hearts .heart1-1 {
-      -webkit-animation: name-hearts 1s linear forwards 7.7s;
-      animation: name-hearts 1s linear forwards 7.7s; }
-    .jumbotron #svgWrapper svg .name-hearts .heart2-2 {
-      -webkit-animation: name-hearts 1s linear forwards 8.7s;
-      animation: name-hearts 1s linear forwards 8.7s; }
-    .jumbotron #svgWrapper svg .name-hearts .heart2-1 {
-      -webkit-animation: name-hearts 1s linear forwards 9.7s;
-      animation: name-hearts 1s linear forwards 9.7s; }
+        stroke-width: 7;
+        stroke-linecap: round; }
+      .jumbotron-wrapper .jumbotron #svgWrapper svg .name-hearts .heart1-2 {
+        -webkit-animation: name-hearts 1s linear forwards 6.7s;
+        animation: name-hearts 1s linear forwards 6.7s; }
+      .jumbotron-wrapper .jumbotron #svgWrapper svg .name-hearts .heart1-1 {
+        -webkit-animation: name-hearts 1s linear forwards 7.7s;
+        animation: name-hearts 1s linear forwards 7.7s; }
+      .jumbotron-wrapper .jumbotron #svgWrapper svg .name-hearts .heart2-2 {
+        -webkit-animation: name-hearts 1s linear forwards 8.7s;
+        animation: name-hearts 1s linear forwards 8.7s; }
+      .jumbotron-wrapper .jumbotron #svgWrapper svg .name-hearts .heart2-1 {
+        -webkit-animation: name-hearts 1s linear forwards 9.7s;
+        animation: name-hearts 1s linear forwards 9.7s; }
 
 .page-content {
   background-color: white;
   z-index: 2;
-  margin-top: 550px; }
+  padding-top: 50px; }
 
 /*HANDWRITING ANIMATION*/
 @-webkit-keyframes name-louise {
@@ -272,7 +279,7 @@ h1 {
   margin-top: 50px; }
 
 .main-page-section {
-  margin: 100px auto; }
+  margin: 0 auto 100px; }
 
 .section-intro h1 {
   margin-bottom: 50px; }

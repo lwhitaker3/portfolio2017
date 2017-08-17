@@ -12,6 +12,7 @@ jQuery(document).ready(function($){
 	triggerAnimation();
 	$(window).on('resize', function(){
 		triggerAnimation();
+    updateNavBar();
 	});
 
 	//bind the scale event to window scroll if window width > $MQ (unbind it otherwise)
@@ -41,7 +42,28 @@ jQuery(document).ready(function($){
 			});
 		}
 	}
-
+  
+  function updateNavBar() {
+    var headroom = nav.data('headroom');
+    headroom.offset = nav.offset().top + 40;
+    headroom.update();
+    console.log("Updated: " + headroom.offset);
+  }
+  window.nav = $("#main-nav");
+  nav.headroom({
+    // Offset set in updateNavBar.
+    "tolerance": 5,
+    "classes": {
+      "initial": "animated",
+      "pinned": "slideDown",
+      "unpinned": "slideUp"
+    }
+  });
+  navSticky = new Waypoint.Sticky({
+    element: nav[0],
+    stuckClass: 'fixed-top',
+  });
+  updateNavBar();
 });
 
 $("#main-nav ul li a[href^='#']").on('click', function(e) {
