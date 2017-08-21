@@ -7,10 +7,12 @@ $background-color:  #fbfbfb;
 
 h1, h2, h3, h4, h5, h6{
   font-family: $header-font;
+  color: $dark-color;
 }
 body{
   font-family: $body-font;
   font-weight: 400;
+  color: $dark-color;
 }
 h1{
   font-size: 36px;
@@ -19,6 +21,9 @@ h1{
 }
 h2{
   font-size: 32px;
+  font-weight: 300;
+}
+h4{
   font-weight: 300;
 }
 
@@ -441,19 +446,28 @@ h2{
 }
 
 .section-intro{
-  margin-top: 150px;
+  padding-top: 150px;
   h1{
     margin-bottom: 50px;
+    color: $dark-color;
   }
   p{
     margin-bottom: 100px;
   }
   i{
     font-size: 42px;
-    color: $primary-color;
+    color: $dark-color;
   }
   .section-divider{
     margin-top: 0px;
+  }
+  &.resume-intro{
+    h1{
+      margin-bottom: 20px;
+    }
+    .button{
+      margin-bottom: 50px;
+    }
   }
 }
 
@@ -496,6 +510,8 @@ a.hoverlink {
 //     border-width: 0;
 // }
 .button{
+  display: inline-block;
+  width: 160px;
   .button-link{
     cursor: pointer;
     display: block;
@@ -724,25 +740,25 @@ footer{
 
 /*==========  Sections  ==========*/
 
-.timeline {
-  margin: 0px auto;
-  position: relative;
-}
-.timeline .section-inner,
-.timeline .post-wrapper {
-  *zoom: 1;
-}
-.timeline .section-inner:before,
-.timeline .post-wrapper:before,
-.timeline .section-inner:after,
-.timeline .post-wrapper:after {
-  content: "";
-  display: table;
-}
-.timeline .section-inner:after,
-.timeline .post-wrapper:after {
-  clear: both;
-}
+// .timeline {
+//   margin: 0px auto;
+//   position: relative;
+// }
+// .timeline .section-inner,
+// .timeline .post-wrapper {
+//   *zoom: 1;
+// }
+// .timeline .section-inner:before,
+// .timeline .post-wrapper:before,
+// .timeline .section-inner:after,
+// .timeline .post-wrapper:after {
+//   content: "";
+//   display: table;
+// }
+// .timeline .section-inner:after,
+// .timeline .post-wrapper:after {
+//   clear: both;
+// }
 .section .section-inner {
   margin: 0px auto;
   width: 1024px;
@@ -977,7 +993,11 @@ footer{
 .skills{
   text-align: center;
   ul{
+    padding-left: 0;
     list-style: none;
+    li{
+      line-height: 2;
+    }
   }
 }
 
@@ -1054,7 +1074,7 @@ footer{
         width: 0;
       }
       p{
-        margin-bottom: 50px;
+        // margin-bottom: 30px;
         .date{
           float: left;
         }
@@ -1064,19 +1084,20 @@ footer{
       }
       h3{
         clear: both;
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 500;
+        padding-top: 10px;
         margin-bottom: 20px;
         span.job-position{
           font-family: $body-font;
           font-weight: 300;
           font-size: 20px;
-          margin-left: 20px;
+          margin-left: 10px;
         }
       }
       ul{
         list-style: none;
-        padding-left: 20px;
+        padding-left: 0px;
         li{
           margin-bottom: 10px;
         }
