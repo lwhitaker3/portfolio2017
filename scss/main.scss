@@ -441,6 +441,7 @@ h2{
 }
 
 .section-intro{
+  margin-top: 150px;
   h1{
     margin-bottom: 50px;
   }
@@ -1751,4 +1752,34 @@ footer{
 		display: block;
 		text-align: center;
 	}
+}
+.flex {
+    display: -webkit-flex;
+    display: flex;
+    .content-vertical{
+      align-self: center;
+    }
+}
+@media only screen and (max-width: 768px){
+  .flex {
+      display: block;
+      .content-vertical{
+        align-self: center;
+      }
+  }
+}
+.mb-100{
+  margin-bottom: 100px;
+}
+.pink{
+  color: $primary-color;
+}
+.orange{
+  color: $secondary-color;
+}
+.close-icon{
+  .icon-close{
+    font-size: 30px;
+    line-height: 1;
+  }
 }

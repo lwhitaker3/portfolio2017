@@ -319,15 +319,17 @@ h2 {
   .page-section h2 {
     margin-bottom: 50px; }
 
-.section-intro h1 {
-  margin-bottom: 50px; }
-.section-intro p {
-  margin-bottom: 100px; }
-.section-intro i {
-  font-size: 42px;
-  color: #E72264; }
-.section-intro .section-divider {
-  margin-top: 0px; }
+.section-intro {
+  margin-top: 150px; }
+  .section-intro h1 {
+    margin-bottom: 50px; }
+  .section-intro p {
+    margin-bottom: 100px; }
+  .section-intro i {
+    font-size: 42px;
+    color: #E72264; }
+  .section-intro .section-divider {
+    margin-top: 0px; }
 
 a.hoverlink {
   color: #E72264;
@@ -1373,5 +1375,28 @@ footer {
     top: 100px;
     display: block;
     text-align: center; } }
+.flex {
+  display: -webkit-flex;
+  display: flex; }
+  .flex .content-vertical {
+    align-self: center; }
+
+@media only screen and (max-width: 768px) {
+  .flex {
+    display: block; }
+    .flex .content-vertical {
+      align-self: center; } }
+.mb-100 {
+  margin-bottom: 100px; }
+
+.pink {
+  color: #E72264; }
+
+.orange {
+  color: #F58A29; }
+
+.close-icon .icon-close {
+  font-size: 30px;
+  line-height: 1; }
 
 /*# sourceMappingURL=main.css.map */
