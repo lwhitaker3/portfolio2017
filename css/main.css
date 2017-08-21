@@ -14,6 +14,32 @@ h2 {
   font-size: 32px;
   font-weight: 300; }
 
+/* PAGE ANIMATION */
+.portfolio-cards {
+  position: relative;
+  perspective: 1500px;
+  /* Allow the contents to cover other items on the page. */
+  z-index: 1; }
+
+.placeholder {
+  position: absolute;
+  transform: none;
+  /* TODO(lwhitaker): Update transition style. */
+  transition: all ease-in .5s;
+  transform-style: preserve-3d;
+  z-index: 10; }
+  .placeholder.page-animate-in {
+    transform: rotateY(-179.9deg); }
+    .placeholder.page-animate-in img,
+    .placeholder.page-animate-in .back {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      backface-visibility: hidden; }
+    .placeholder.page-animate-in .back {
+      background-color: white;
+      transform: rotateY(180deg); }
+
 /*MENU ANIMATION*/
 .navbar {
   background-color: white;
