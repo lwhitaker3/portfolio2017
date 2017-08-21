@@ -261,4 +261,59 @@ jQuery(document).ready(function($){
 	}
 });
 
+// Based on https://tympanus.net/codrops/2014/03/27/3d-grid-effect/
+/*
+ * TODO(creisman):
+ *   fix scrolling
+ *   allow closing
+ *   add content
+ *   resize support
+ */
+jQuery(document).ready(function($){
+  $('.portfolio-cards img').on('click', function(e) {
+    var el = e.currentTarget;
+    var el$ = $(el);
+    var clone = e.currentTarget.cloneNode(true /* deep */);
+    var clone$ = $(clone);
+
+    var back$ = $(document.createElement('div'));
+    back$.addClass('back');
+    back$.html('&nbsp;');
+
+    var placeholder$ = $(document.createElement('div'));
+    placeholder$.addClass('placeholder');
+    var elWrapper$ = el$.parent();
+    var offset = elWrapper$.position();
+    /* Set the initial state to make it overlap the current item. */
+    placeholder$.css({
+      /* Offsets from the relative parent to match it to the clicked image. */
+      top: (offset.top || 0) + parseInt(elWrapper$.css('padding-top'), 10),
+      left: (offset.left || 0) + parseInt(elWrapper$.css('padding-left'), 10),
+      height: el$.css('height'),
+      width: el$.css('width')
+    });
+
+    placeholder$.append(clone);
+    placeholder$.append(back$);
+    $('.portfolio-cards').append(placeholder$);
+
+    /*
+     * Set the new final values after a delay. The delay makes sure the rendering was completed,
+     * otherwise the transition wouldn't register for the starting state.
+     */
+    window.setTimeout(function() {
+      var grid = $('.portfolio-cards');
+      var gridOffset = grid.offset();
+      placeholder$.addClass('page-animate-in');
+      placeholder$.css({
+        /* Offsets from the relative parent to set it at the upper left corner. */
+        top: -(gridOffset.top - scrollY),
+        left: -(gridOffset.left - scrollX),
+        height: document.documentElement.clientHeight,
+        width: document.documentElement.clientWidth
+      });
+    }, 20);
+  });
+});
+
 //END OF RESUME PAGE
