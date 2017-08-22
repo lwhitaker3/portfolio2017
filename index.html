@@ -384,6 +384,7 @@
         </div>
       </nav>
 
+
       <div class="home-page-content">
         <div class="container page-section" id="work">
           <!-- Example row of columns -->
@@ -391,37 +392,83 @@
             <div class="col-sm-12">
               <h1 class="text-center">My Work</h1>
             </div>
-            <div class="col-sm-12 col-md-10 ml-md-auto mr-md-auto">
-              <p class="text-center lead">Check out my projects</p>
+            <div class="controls">
+              <div class="col-sm-12">
+                <button type="button" class="control hvr-overline-from-center mixitup-control-active" data-filter=".featured">Featured</button>
+                <button type="button" class="control hvr-overline-from-center" data-filter="all">All</button>
+                <button type="button" class="control hvr-overline-from-center" data-filter=".green">Green</button>
+                <button type="button" class="control hvr-overline-from-center" data-filter=".blue">Blue</button>
+                <button type="button" class="control hvr-overline-from-center" data-filter=".pink">Pink</button>
+              </div>
             </div>
+
           </div>
-          <div class="row controls">
-            <div class="col-sm-12">
-              <button type="button" class="control" data-filter="all">All</button>
-              <button type="button" class="control" data-filter=".green">Green</button>
-              <button type="button" class="control" data-filter=".blue">Blue</button>
-              <button type="button" class="control" data-filter=".pink">Pink</button>
-              <button type="button" class="control" data-filter="none">None</button>
+          <div class="row portfolio-cards" id="portfolio-cards">
+            <div class="col-md-4 col-sm-6 mix pink featured">
+              <div class="content-wrapper">
+                <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
+                <div class="portfolio-caption">
+                  <span>
+                    <p class="project-title">Project Title</p>
+                    <p class="project-tags">Project Tags</p>
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="row portfolio-cards">
-            <div class="col-md-4 col-sm-6 mix pink">
-              <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
+            <div class="col-md-4 col-sm-6 mix green featured">
+              <div class="content-wrapper">
+                <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
+                <div class="portfolio-caption">
+                  <span>
+                    <p class="project-title">Project Title</p>
+                    <p class="project-tags">Project Tags</p>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 mix pink featured">
+              <div class="content-wrapper">
+                <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
+                <div class="portfolio-caption">
+                  <span>
+                    <p class="project-title">Project Title</p>
+                    <p class="project-tags">Project Tags</p>
+                  </span>
+                </div>
+              </div>
             </div>
             <div class="col-md-4 col-sm-6 mix blue">
-              <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
+              <div class="content-wrapper">
+                <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
+                <div class="portfolio-caption">
+                  <span>
+                    <p class="project-title">Project Title</p>
+                    <p class="project-tags">Project Tags</p>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-6 mix blue green">
+              <div class="content-wrapper">
+                <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
+                <div class="portfolio-caption">
+                  <span>
+                    <p class="project-title">Project Title</p>
+                    <p class="project-tags">Project Tags</p>
+                  </span>
+                </div>
+              </div>
             </div>
             <div class="col-md-4 col-sm-6 mix green">
-              <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
-            </div>
-            <div class="col-md-4 col-sm-6 mix pink">
-              <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
-            </div>
-            <div class="col-md-4 col-sm-6 mix pink">
-              <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
-            </div>
-            <div class="col-md-4 col-sm-6 mix pink">
-              <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
+              <div class="content-wrapper">
+                <img class="img-fluid" src="img/placeholder.png" alt="Card image cap">
+                <div class="portfolio-caption">
+                  <span>
+                    <p class="project-title">Project Title</p>
+                    <p class="project-tags">Project Tags</p>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
           <img class="section-divider" src="img/divider.svg">
@@ -482,16 +529,16 @@
             <div class="col-md-8 ml-md-auto mr-md-auto">
               <form>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
+                  <label for="exampleInputEmail1">Your Email</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                  <label for="formGroupExampleInput">Example label</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                  <label for="formGroupExampleInput">Subject</label>
+                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Subject">
                 </div>
                 <div class="form-group">
-                  <label for="exampleTextarea">Example textarea</label>
-                  <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                  <label for="exampleTextarea">Message</label>
+                  <textarea class="form-control" id="exampleTextarea" placeholder="Enter Your Message..." rows="5"></textarea>
                 </div>
 
                 <div class="button">
@@ -626,16 +673,27 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/shortcuts/sticky.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/4.4.0/typeit.min.js"></script>
+        <script type="text/javascript" src="js/jquery.hoverdir.js"></script>
+        <script type="text/javascript">
+          $(function() {
+            $(' #portfolio-cards > .mix > .content-wrapper ').each( function() { $(this).hoverdir(); } );
+          });
+        </script>
         <script>
         $('#typing-animation').typeIt({
           strings: ["UX Designer.", "Problem Solver.", "Creative Thinker.", "Prototyping Queen.", "Seahawks Fan.", "Coffee Addict."],
           speed: 150,
           breakLines: false,
           autoStart: false,
-          loop: true
+          loop: true,
+          startDelay: 8500
         });
         var containerEl = document.querySelector('.portfolio-cards');
-        var mixer = mixitup(containerEl);
+        var mixer = mixitup(containerEl, {
+          load: {
+              filter: '.featured'
+          }
+        });
         </script>
 
         <script src="js/main.js"></script>

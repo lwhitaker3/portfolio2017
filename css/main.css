@@ -19,12 +19,53 @@ h2 {
 h4 {
   font-weight: 300; }
 
+.form-control {
+  border: 1px solid rgba(38, 50, 56, 0.5);
+  border-radius: 0;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
+  .form-control:focus {
+    border: 1px solid #e72264; }
+
 /* PAGE ANIMATION */
 .portfolio-cards {
   position: relative;
   perspective: 1500px;
   /* Allow the contents to cover other items on the page. */
   z-index: 1; }
+  .portfolio-cards .mix {
+    padding: 15px;
+    position: relative; }
+    .portfolio-cards .mix .content-wrapper {
+      overflow: hidden;
+      display: block;
+      position: relative; }
+      .portfolio-cards .mix .content-wrapper:hover img {
+        transform: scale(1.2); }
+      .portfolio-cards .mix .content-wrapper img {
+        display: block;
+        position: relative;
+        -webkit-transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+        -moz-transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1); }
+      .portfolio-cards .mix .content-wrapper .portfolio-caption {
+        position: absolute;
+        background: #333;
+        background: rgba(38, 50, 56, 0.7);
+        width: 100%;
+        height: 100%; }
+        .portfolio-cards .mix .content-wrapper .portfolio-caption span {
+          text-align: center;
+          position: absolute;
+          bottom: 0;
+          display: block;
+          padding: 40px;
+          width: 100%;
+          font-size: 24px;
+          color: white; }
+          .portfolio-cards .mix .content-wrapper .portfolio-caption span .project-title {
+            margin-bottom: 5px; }
+          .portfolio-cards .mix .content-wrapper .portfolio-caption span .project-tags {
+            font-size: 14px; }
 
 .placeholder {
   position: absolute;
@@ -137,63 +178,66 @@ h4 {
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%); }
     .jumbotron-wrapper .jumbotron p {
-      color: white; }
+      color: white;
+      font-size: 24px;
+      margin-top: 20px; }
     .jumbotron-wrapper .jumbotron #intro-image {
-      width: 100px; }
+      width: 100px;
+      margin-bottom: 50px; }
     .jumbotron-wrapper .jumbotron #svgWrapper {
-      width: 60%;
+      width: 80%;
       height: auto;
       margin: auto; }
       .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke {
         stroke-linecap: round;
         shape-rendering: geometricPrecision; }
         .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke .louise {
-          stroke-dasharray: 2400;
-          stroke-dashoffset: 2400;
+          stroke-dasharray: 2200;
+          stroke-dashoffset: 2200;
           stroke-width: 8;
-          -webkit-animation: name-louise 2s linear forwards .5s;
-          animation: name-louise 2s linear forwards .5s; }
+          -webkit-animation: name-louise 1.5s linear forwards .5s;
+          animation: name-louise 1.5s linear forwards .5s; }
         .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke .r {
-          stroke-dasharray: 1200;
-          stroke-dashoffset: 1200;
+          stroke-dasharray: 800;
+          stroke-dashoffset: 800;
           stroke-width: 8;
-          -webkit-animation: name-r .75s linear forwards 2.5s;
-          animation: name-r .75s linear forwards 2.5s; }
+          -webkit-animation: name-r .5s linear forwards 2.25s;
+          animation: name-r .5s linear forwards 2.25s; }
         .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke .w {
-          stroke-dasharray: 1200;
-          stroke-dashoffset: 1200;
+          stroke-dasharray: 800;
+          stroke-dashoffset: 800;
           stroke-width: 8;
-          -webkit-animation: name-w .75s linear forwards 3.25s;
-          animation: name-w .75s linear forwards 3.25s; }
+          -webkit-animation: name-w .5s linear forwards 3s;
+          animation: name-w .5s linear forwards 3s; }
         .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke .hitaker {
           stroke-dasharray: 2400;
           stroke-dashoffset: 2400;
           stroke-width: 8;
-          -webkit-animation: name-hitaker 2s linear forwards 4s;
-          animation: name-hitaker 2s linear forwards 4s; }
+          -webkit-animation: name-hitaker 1.5s linear forwards 3.75s;
+          animation: name-hitaker 1.5s linear forwards 3.75s; }
         .jumbotron-wrapper .jumbotron #svgWrapper svg #stroke .t-cross {
-          stroke-dasharray: 400;
-          stroke-dashoffset: 400;
+          stroke-dasharray: 200;
+          stroke-dashoffset: 200;
           stroke-width: 8;
-          -webkit-animation: name-t-cross 1s linear forwards 5.7s;
-          animation: name-t-cross 1s linear forwards 5.7s; }
+          -webkit-animation: name-t-cross .5s linear forwards 5.5s;
+          animation: name-t-cross .5s linear forwards 5.5s; }
       .jumbotron-wrapper .jumbotron #svgWrapper svg .name-hearts path {
-        stroke-dasharray: 400;
-        stroke-dashoffset: 400;
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
         stroke-width: 7;
         stroke-linecap: round; }
       .jumbotron-wrapper .jumbotron #svgWrapper svg .name-hearts .heart1-2 {
-        -webkit-animation: name-hearts 1s linear forwards 6.7s;
-        animation: name-hearts 1s linear forwards 6.7s; }
+        -webkit-animation: name-hearts .25s linear forwards 6.25s;
+        animation: name-hearts .25s linear forwards 6.25s; }
       .jumbotron-wrapper .jumbotron #svgWrapper svg .name-hearts .heart1-1 {
-        -webkit-animation: name-hearts 1s linear forwards 7.7s;
-        animation: name-hearts 1s linear forwards 7.7s; }
+        -webkit-animation: name-hearts .25s linear forwards 6.75s;
+        animation: name-hearts .25s linear forwards 6.75s; }
       .jumbotron-wrapper .jumbotron #svgWrapper svg .name-hearts .heart2-2 {
-        -webkit-animation: name-hearts 1s linear forwards 8.7s;
-        animation: name-hearts 1s linear forwards 8.7s; }
+        -webkit-animation: name-hearts .25s linear forwards 7.25s;
+        animation: name-hearts .25s linear forwards 7.25s; }
       .jumbotron-wrapper .jumbotron #svgWrapper svg .name-hearts .heart2-1 {
-        -webkit-animation: name-hearts 1s linear forwards 9.7s;
-        animation: name-hearts 1s linear forwards 9.7s; }
+        -webkit-animation: name-hearts .25s linear forwards 7.75s;
+        animation: name-hearts .25s linear forwards 7.75s; }
 
 .home-page-content {
   background-color: white;
@@ -203,37 +247,37 @@ h4 {
 /*HANDWRITING ANIMATION*/
 @-webkit-keyframes name-louise {
   0% {
-    stroke-dashoffset: 2400; }
+    stroke-dashoffset: 2200; }
   100% {
     stroke-dashoffset: 0;
     stroke-width: 9; } }
 @keyframes name-louise {
   0% {
-    stroke-dashoffset: 2400; }
+    stroke-dashoffset: 2200; }
   100% {
     stroke-dashoffset: 0;
     stroke-width: 9; } }
 @-webkit-keyframes name-r {
   0% {
-    stroke-dashoffset: 1200; }
+    stroke-dashoffset: 800; }
   100% {
     stroke-dashoffset: 0;
     stroke-width: 9; } }
 @keyframes name-r {
   0% {
-    stroke-dashoffset: 1200; }
+    stroke-dashoffset: 800; }
   100% {
     stroke-dashoffset: 0;
     stroke-width: 9; } }
 @-webkit-keyframes name-w {
   0% {
-    stroke-dashoffset: 1200; }
+    stroke-dashoffset: 800; }
   100% {
     stroke-dashoffset: 0;
     stroke-width: 9; } }
 @keyframes name-w {
   0% {
-    stroke-dashoffset: 1200; }
+    stroke-dashoffset: 800; }
   100% {
     stroke-dashoffset: 0;
     stroke-width: 9; } }
@@ -251,25 +295,25 @@ h4 {
     stroke-width: 9; } }
 @-webkit-keyframes name-t-cross {
   0% {
-    stroke-dashoffset: 400; }
+    stroke-dashoffset: 200; }
   100% {
     stroke-dashoffset: 0;
     stroke-width: 9; } }
 @keyframes name-t-cross {
   0% {
-    stroke-dashoffset: 400; }
+    stroke-dashoffset: 200; }
   100% {
     stroke-dashoffset: 0;
     stroke-width: 9; } }
 @-webkit-keyframes name-hearts {
   0% {
-    stroke-dashoffset: 400; }
+    stroke-dashoffset: 100; }
   100% {
     stroke-dashoffset: 0;
     stroke-width: 7; } }
 @keyframes name-hearts {
   0% {
-    stroke-dashoffset: 400; }
+    stroke-dashoffset: 100; }
   100% {
     stroke-dashoffset: 0;
     stroke-width: 7; } }
@@ -306,12 +350,26 @@ h4 {
     transition-timing-function: ease-out;
     background: #E72264; }
 
-.hvr-overline-from-center:hover, .hvr-overline-from-center:focus, .hvr-overline-from-center:active, .hvr-overline-from-center.active {
+.hvr-overline-from-center:hover, .hvr-overline-from-center:focus, .hvr-overline-from-center:active, .hvr-overline-from-center.mixitup-control-active, .hvr-overline-from-center.active {
   color: #E72264; }
 
-.hvr-overline-from-center:hover:before, .hvr-overline-from-center:focus:before, .hvr-overline-from-center:active:before, .hvr-overline-from-center.active:before {
+.hvr-overline-from-center:hover:before, .hvr-overline-from-center:focus:before, .hvr-overline-from-center:active:before, .hvr-overline-from-center.active:before, .hvr-overline-from-center.mixitup-control-active:before {
   left: 0;
   right: 0; }
+
+.controls {
+  margin-bottom: 30px;
+  font-size: 1.25rem; }
+  .controls button {
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: #263238;
+    background-color: transparent;
+    padding: 2px 6px 3px;
+    border: none; }
+    .controls button:focus {
+      outline: 0; }
 
 .section-divider {
   display: block;
@@ -370,6 +428,14 @@ a.hoverlink {
 .button {
   display: inline-block;
   width: 160px; }
+  .button button {
+    text-align: center;
+    cursor: default;
+    color: transparent;
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 0;
+    border-width: 0; }
   .button .button-link {
     cursor: pointer;
     display: block;
