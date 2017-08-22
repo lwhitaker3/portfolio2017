@@ -517,7 +517,7 @@ h4{
 }
 
 .page-section{
-  margin: 0 auto 100px;
+  padding: 0 0 100px;
   h2{
     margin-bottom: 50px;
   }
@@ -819,33 +819,20 @@ footer{
 
 /*==========  Sections  ==========*/
 
-// .timeline {
-//   margin: 0px auto;
-//   position: relative;
-// }
-// .timeline .section-inner,
-// .timeline .post-wrapper {
-//   *zoom: 1;
-// }
-// .timeline .section-inner:before,
-// .timeline .post-wrapper:before,
-// .timeline .section-inner:after,
-// .timeline .post-wrapper:after {
-//   content: "";
-//   display: table;
-// }
-// .timeline .section-inner:after,
-// .timeline .post-wrapper:after {
-//   clear: both;
-// }
-.section .section-inner {
-  margin: 0px auto;
-  width: 1024px;
+
+.process-line{
+  .section-inner {
+    position: relative;
+    margin: 0px auto;
+    width: 1024px;
+  }
 }
 @media only screen {
-  .section .section-inner {
-    width: auto;
-    max-width: 1024px;
+  .process-line{
+    .section-inner {
+      width: auto;
+      max-width: 1024px;
+    }
   }
 }
 /*==========  Stem  ==========*/

@@ -378,7 +378,7 @@ h4 {
   margin-top: 50px; }
 
 .page-section {
-  margin: 0 auto 100px; }
+  padding: 0 0 100px; }
   .page-section h2 {
     margin-bottom: 50px; }
 
@@ -595,12 +595,13 @@ footer {
       line-height: 80px; }
 
 /*==========  Sections  ==========*/
-.section .section-inner {
+.process-line .section-inner {
+  position: relative;
   margin: 0px auto;
   width: 1024px; }
 
 @media only screen {
-  .section .section-inner {
+  .process-line .section-inner {
     width: auto;
     max-width: 1024px; } }
 /*==========  Stem  ==========*/
