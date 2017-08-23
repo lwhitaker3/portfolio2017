@@ -243,6 +243,8 @@ h4 {
   background-color: white;
   z-index: 2;
   padding-top: 50px; }
+  .home-page-content .page-section {
+    padding: 0; }
 
 /*HANDWRITING ANIMATION*/
 @-webkit-keyframes name-louise {
@@ -556,22 +558,28 @@ footer {
       display: block;
       -webkit-font-smoothing: antialiased; }
 
-.about-me-cards .card {
-  border: none; }
-
-.col-sm-4 .card {
-  text-align: center;
+.about-me-cards {
   color: white; }
-  .col-sm-4 .card.color1 {
-    background-color: #E72264; }
-  .col-sm-4 .card.color2 {
-    background-color: #F58A29; }
-  .col-sm-4 .card i {
-    font-size: 42px; }
-  .col-sm-4 .card h4 {
-    font-weight: 300; }
-  .col-sm-4 .card .card-body {
-    padding: 40px 20px; }
+  .about-me-cards .card {
+    text-align: center;
+    color: white;
+    border: none; }
+    .about-me-cards .card.color1 {
+      background-color: #E72264; }
+    .about-me-cards .card.color2 {
+      background-color: #F58A29; }
+    .about-me-cards .card i {
+      font-size: 42px; }
+    .about-me-cards .card h4 {
+      font-weight: 300;
+      color: white; }
+    .about-me-cards .card .card-body {
+      padding: 40px 20px;
+      -webkit-transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+      -moz-transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1); }
+    .about-me-cards .card:hover .card-body {
+      transform: scale(1.2); }
 
 .page-content {
   margin-top: 150px; }

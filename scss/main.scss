@@ -332,6 +332,9 @@ h4{
   background-color: white;
   z-index: 2;
   padding-top: 50px;
+  .page-section{
+    padding: 0;
+  }
 }
 
 
@@ -764,15 +767,11 @@ footer{
 
 
 .about-me-cards{
-  .card{
-    border: none;
-
-  }
-}
-.col-sm-4{
+  color: white;
   .card{
     text-align: center;
     color: white;
+    border: none;
     &.color1{
       background-color: $primary-color;
     }
@@ -784,9 +783,16 @@ footer{
     }
     h4{
       font-weight: 300;
+      color: white;
     }
     .card-body{
       padding: 40px 20px;
+      -webkit-transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+      -moz-transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    &:hover .card-body{
+      transform: scale(1.2);
     }
   }
 }
