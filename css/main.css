@@ -22,6 +22,18 @@ h4 {
 .noscroll {
   overflow: hidden; }
 
+#project-page-content-wrapper {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -100;
+  overflow-y: scroll; }
+  #project-page-content-wrapper.visible {
+    z-index: 1100; }
+
 .form-control {
   border: 1px solid rgba(38, 50, 56, 0.5);
   border-radius: 0;
@@ -44,6 +56,8 @@ h4 {
       position: relative; }
       .portfolio-cards .mix .content-wrapper:hover img {
         transform: scale(1.2); }
+      .portfolio-cards .mix .content-wrapper.active {
+        opacity: 0; }
       .portfolio-cards .mix .content-wrapper img {
         display: block;
         position: relative;
@@ -79,15 +93,15 @@ h4 {
   z-index: 10; }
   .placeholder.page-animate-in {
     transform: rotateY(-179.9deg); }
-    .placeholder.page-animate-in img,
-    .placeholder.page-animate-in .back {
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      backface-visibility: hidden; }
-    .placeholder.page-animate-in .back {
-      background-color: white;
-      transform: rotateY(180deg); }
+  .placeholder img,
+  .placeholder .back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden; }
+  .placeholder .back {
+    background-color: white;
+    transform: rotateY(180deg); }
 
 /*MENU ANIMATION*/
 .navbar {

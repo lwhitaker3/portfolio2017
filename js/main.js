@@ -265,16 +265,14 @@ jQuery(document).ready(function($){
 // Based on https://tympanus.net/codrops/2014/03/27/3d-grid-effect/
 /*
  * TODO(creisman):
- *   fix scrolling
- *   allow closing
- *   add content
+ *   load content
  *   resize support
  */
 jQuery(document).ready(function($){
   $('.portfolio-cards .content-wrapper').on('click', function(e) {
     var wrapper$ = $(e.currentTarget);
-    var el$ = wrapper$.find('img');
-    var clone$ = el$.clone();
+    var img$ = wrapper$.find('img');
+    var clone$ = img$.clone();
 
     var back$ = $(document.createElement('div'));
     back$.addClass('back');
@@ -282,26 +280,19 @@ jQuery(document).ready(function($){
 
     var placeholder$ = $(document.createElement('div'));
     placeholder$.addClass('placeholder');
-    var offset = wrapper$.position();
-    /* Set the initial state to make it overlap the current item. */
-    placeholder$.css({
-      /* Offsets from the relative parent to match it to the clicked image. */
-      top: (offset.top || 0) + parseInt(wrapper$.css('padding-top'), 10),
-      left: (offset.left || 0) + parseInt(wrapper$.css('padding-left'), 10),
-      height: el$.css('height'),
-      width: el$.css('width')
-    });
 
     placeholder$.append(clone$);
     placeholder$.append(back$);
     $('.portfolio-cards').append(placeholder$);
+    wrapper$.addClass('active');
+
+    placeholder$.css(getInitialCardPosition(wrapper$, img$));
 
     /*
      * Set the new final values after a delay. The delay makes sure the rendering was completed,
      * otherwise the transition wouldn't register for the starting state.
      */
     window.setTimeout(function() {
-      $(document.body).addClass('noscroll');
       var grid = $('.portfolio-cards');
       var gridOffset = grid.offset();
       placeholder$.addClass('page-animate-in');
@@ -313,7 +304,66 @@ jQuery(document).ready(function($){
         width: document.documentElement.clientWidth
       });
     }, 20);
+
+    function showPageContentFn() {
+      placeholder$.off('transitionend', showPageContentFn);
+      $('#project-page-content-wrapper').addClass('visible');
+      $(document.body).addClass('noscroll');
+    }
+
+    placeholder$.on('transitionend', showPageContentFn);
   });
+
+  $('#project-page-content-wrapper .close').on('click', function() {
+    $('#project-page-content-wrapper').removeClass('visible');
+    var wrapper$ = $('.portfolio-cards .content-wrapper.active');
+    var img$ = wrapper$.find('img');
+
+    var placeholder$ = $('.portfolio-cards .placeholder');
+
+    setTimeout(function() {
+      placeholder$.css(getInitialCardPosition(wrapper$, img$));
+
+      $(document.body).removeClass('noscroll');
+      placeholder$.removeClass('page-animate-in');
+
+      function destroyPlaceholderFn() {
+        placeholder$.off('transitionend', destroyPlaceholderFn);
+        wrapper$.removeClass('active');
+        window.setTimeout(function() {
+          placeholder$.remove();
+        }, 0);
+      }
+
+      placeholder$.on('transitionend', destroyPlaceholderFn);
+    }, 20);
+  });
+
+  function getInitialCardPosition(wrapper$, img$) {
+    var gridItem$ = wrapper$.parent();
+    var offset = gridItem$.position();
+
+    // Clear the transform so the size calculation is correct.
+    img$.css({
+      transition: 'none',
+      transform: 'none'
+    });
+    /* Set the initial state to make it overlap the current item. */
+    var initialPosition = {
+      /* Offsets from the relative parent to match it to the clicked image. */
+      top: (offset.top || 0) + parseInt(gridItem$.css('padding-top'), 10),
+      left: (offset.left || 0) + parseInt(gridItem$.css('padding-left'), 10),
+      height: img$.css('height'),
+      width: img$.css('width')
+    };
+    // Reset the styles.
+    img$.css({
+      transition: '',
+      transform: ''
+    });
+
+    return initialPosition;
+  }
 });
 
 //END OF RESUME PAGE
