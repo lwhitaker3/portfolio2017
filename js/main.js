@@ -47,7 +47,6 @@ jQuery(document).ready(function($){
     var headroom = nav.data('headroom');
     headroom.offset = nav.offset().top + 40;
     headroom.update();
-    console.log("Updated: " + headroom.offset);
   }
   window.nav = $("#main-nav");
   nav.headroom({
