@@ -271,11 +271,10 @@ jQuery(document).ready(function($){
  *   resize support
  */
 jQuery(document).ready(function($){
-  $('.portfolio-cards img').on('click', function(e) {
-    var el = e.currentTarget;
-    var el$ = $(el);
-    var clone = e.currentTarget.cloneNode(true /* deep */);
-    var clone$ = $(clone);
+  $('.portfolio-cards .content-wrapper').on('click', function(e) {
+    var wrapper$ = $(e.currentTarget);
+    var el$ = wrapper$.find('img');
+    var clone$ = el$.clone();
 
     var back$ = $(document.createElement('div'));
     back$.addClass('back');
@@ -283,18 +282,17 @@ jQuery(document).ready(function($){
 
     var placeholder$ = $(document.createElement('div'));
     placeholder$.addClass('placeholder');
-    var elWrapper$ = el$.parent();
-    var offset = elWrapper$.position();
+    var offset = wrapper$.position();
     /* Set the initial state to make it overlap the current item. */
     placeholder$.css({
       /* Offsets from the relative parent to match it to the clicked image. */
-      top: (offset.top || 0) + parseInt(elWrapper$.css('padding-top'), 10),
-      left: (offset.left || 0) + parseInt(elWrapper$.css('padding-left'), 10),
+      top: (offset.top || 0) + parseInt(wrapper$.css('padding-top'), 10),
+      left: (offset.left || 0) + parseInt(wrapper$.css('padding-left'), 10),
       height: el$.css('height'),
       width: el$.css('width')
     });
 
-    placeholder$.append(clone);
+    placeholder$.append(clone$);
     placeholder$.append(back$);
     $('.portfolio-cards').append(placeholder$);
 
@@ -303,6 +301,7 @@ jQuery(document).ready(function($){
      * otherwise the transition wouldn't register for the starting state.
      */
     window.setTimeout(function() {
+      $(document.body).addClass('noscroll');
       var grid = $('.portfolio-cards');
       var gridOffset = grid.offset();
       placeholder$.addClass('page-animate-in');
