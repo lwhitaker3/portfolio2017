@@ -55,15 +55,15 @@ h4 {
       display: block;
       position: relative; }
       .portfolio-cards .mix .content-wrapper:hover img {
-        transform: scale(1.2); }
+        transform: scale(1.05); }
       .portfolio-cards .mix .content-wrapper.active {
         opacity: 0; }
       .portfolio-cards .mix .content-wrapper img {
         display: block;
         position: relative;
-        -webkit-transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
-        -moz-transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1);
-        transition: all 1.8s cubic-bezier(0.19, 1, 0.22, 1); }
+        -webkit-transition: all 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+        -moz-transition: all 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+        transition: all 2.5s cubic-bezier(0.19, 1, 0.22, 1); }
       .portfolio-cards .mix .content-wrapper .portfolio-caption {
         position: absolute;
         background: #333;
