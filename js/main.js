@@ -92,6 +92,26 @@ $('#back-to-top').on('click', function (e) {
     }, 700);
 });
 
+$('.intro-scroll-wrapper').on('click', function (e) {
+    e.preventDefault();
+		var scrollLength = $('.jumbotron-wrapper').height();
+		console.log(scrollLength);
+    $('html,body').animate({
+        scrollTop: scrollLength
+    }, 700);
+});
+
+$( ".navbar-toggler" ).click(function() {
+	if ($(".navbar-collapse").hasClass("show")){
+		$("#nav-icon").removeClass("open");
+		$("#primary_navigation").removeClass("background");
+		console.log("open");
+	} else {
+		$("#nav-icon").addClass("open");
+		$("#primary_navigation").addClass("background");
+		console.log("close");
+	}
+});
 // Process Page
 
 (function($) {
