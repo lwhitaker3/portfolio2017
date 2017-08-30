@@ -271,6 +271,7 @@ jQuery(document).ready(function($){
 jQuery(document).ready(function($){
   $('.page-card-grid .page-card-target').on('click', function(e) {
     var wrapper$ = $(e.currentTarget);
+    console.log(wrapper$.data('pagePath'));
     var grid$ = wrapper$.parents('.page-card-grid');
     var content$ = wrapper$.find('.page-card-content').addBack('.page-card-content');
     var clone$ = content$.clone();
