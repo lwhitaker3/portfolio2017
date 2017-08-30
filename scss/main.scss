@@ -61,12 +61,10 @@ h4{
   }
 }
 
+
+
 /* PAGE ANIMATION */
 .portfolio-cards {
-  position: relative;
-  perspective: 1500px;
-  /* Allow the contents to cover other items on the page. */
-  z-index: 1;
   .mix{
     padding: 15px;
     position: relative;
@@ -78,9 +76,6 @@ h4{
         img{
           transform: scale(1.05);
         }
-      }
-      &.active {
-        opacity: 0;
       }
       img{
         display: block;
@@ -122,6 +117,17 @@ h4{
 
 
 
+.page-card-grid {
+  position: relative;
+  perspective: 1500px;
+  /* Allow the contents to cover other items on the page. */
+  z-index: 10;
+  
+  .page-card-target.active {
+    opacity: 0;
+  }
+}
+
 .placeholder {
   position: absolute;
   transform: none;
@@ -134,7 +140,7 @@ h4{
     transform: rotateY(-179.9deg);
   }
 
-  img,
+  .page-card-content,
   .back {
     height: 100%;
     width: 100%;

@@ -266,12 +266,16 @@ jQuery(document).ready(function($){
  * TODO(creisman):
  *   load content
  *   resize support
+ *   history
+ * Change css for new classes
+ * Does find find the current element?
  */
 jQuery(document).ready(function($){
-  $('.portfolio-cards .content-wrapper').on('click', function(e) {
+  $('.page-card-grid .page-card-target').on('click', function(e) {
     var wrapper$ = $(e.currentTarget);
-    var img$ = wrapper$.find('img');
-    var clone$ = img$.clone();
+    var grid$ = wrapper$.parents('.page-card-grid');
+    var content$ = wrapper$.find('.page-card-content').addBack('.page-card-content');
+    var clone$ = content$.clone();
 
     var back$ = $(document.createElement('div'));
     back$.addClass('back');
@@ -282,18 +286,17 @@ jQuery(document).ready(function($){
 
     placeholder$.append(clone$);
     placeholder$.append(back$);
-    $('.portfolio-cards').append(placeholder$);
+    grid$.append(placeholder$);
     wrapper$.addClass('active');
 
-    placeholder$.css(getInitialCardPosition(wrapper$, img$));
+    placeholder$.css(getInitialCardPosition(wrapper$, content$));
 
     /*
      * Set the new final values after a delay. The delay makes sure the rendering was completed,
      * otherwise the transition wouldn't register for the starting state.
      */
     window.setTimeout(function() {
-      var grid = $('.portfolio-cards');
-      var gridOffset = grid.offset();
+      var gridOffset = grid$.offset();
       placeholder$.addClass('page-animate-in');
       placeholder$.css({
         /* Offsets from the relative parent to set it at the upper left corner. */
@@ -315,13 +318,13 @@ jQuery(document).ready(function($){
 
   $('#project-page-content-wrapper .close').on('click', function() {
     $('#project-page-content-wrapper').removeClass('visible');
-    var wrapper$ = $('.portfolio-cards .content-wrapper.active');
-    var img$ = wrapper$.find('img');
+    var wrapper$ = $('.page-card-grid .page-card-target.active');
+    var content$ = wrapper$.find('.page-card-content').addBack('.page-card-content');
 
-    var placeholder$ = $('.portfolio-cards .placeholder');
+    var placeholder$ = $('.page-card-grid .placeholder');
 
     setTimeout(function() {
-      placeholder$.css(getInitialCardPosition(wrapper$, img$));
+      placeholder$.css(getInitialCardPosition(wrapper$, content$));
 
       $(document.body).removeClass('noscroll');
       placeholder$.removeClass('page-animate-in');
@@ -338,12 +341,12 @@ jQuery(document).ready(function($){
     }, 20);
   });
 
-  function getInitialCardPosition(wrapper$, img$) {
+  function getInitialCardPosition(wrapper$, content$) {
     var gridItem$ = wrapper$.parent();
     var offset = gridItem$.position();
 
     // Clear the transform so the size calculation is correct.
-    img$.css({
+    content$.css({
       transition: 'none',
       transform: 'none'
     });
@@ -352,11 +355,11 @@ jQuery(document).ready(function($){
       /* Offsets from the relative parent to match it to the clicked image. */
       top: (offset.top || 0) + parseInt(gridItem$.css('padding-top'), 10),
       left: (offset.left || 0) + parseInt(gridItem$.css('padding-left'), 10),
-      height: img$.css('height'),
-      width: img$.css('width')
+      height: content$.css('height'),
+      width: content$.css('width')
     };
     // Reset the styles.
-    img$.css({
+    content$.css({
       transition: '',
       transform: ''
     });
