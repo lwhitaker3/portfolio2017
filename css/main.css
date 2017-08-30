@@ -93,7 +93,7 @@ h4 {
   position: absolute;
   transform: none;
   /* TODO(lwhitaker): Update transition style. */
-  transition: all ease-in .5s;
+  transition: all ease-in 10s;
   transform-style: preserve-3d;
   z-index: 10; }
   .placeholder.page-animate-in {

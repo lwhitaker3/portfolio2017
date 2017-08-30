@@ -307,10 +307,12 @@ jQuery(document).ready(function($){
       });
     }, 20);
 
-    function showPageContentFn() {
-      placeholder$.off('transitionend', showPageContentFn);
-      $('#project-page-content-wrapper').addClass('visible');
-      $(document.body).addClass('noscroll');
+    function showPageContentFn(e) {
+      if (e.target == e.currentTarget && e.originalEvent.propertyName == 'transform') {
+        placeholder$.off('transitionend', showPageContentFn);
+        $('#project-page-content-wrapper').addClass('visible');
+        $(document.body).addClass('noscroll');
+      }
     }
 
     placeholder$.on('transitionend', showPageContentFn);
@@ -329,12 +331,14 @@ jQuery(document).ready(function($){
       $(document.body).removeClass('noscroll');
       placeholder$.removeClass('page-animate-in');
 
-      function destroyPlaceholderFn() {
-        placeholder$.off('transitionend', destroyPlaceholderFn);
-        wrapper$.removeClass('active');
-        window.setTimeout(function() {
-          placeholder$.remove();
-        }, 0);
+      function destroyPlaceholderFn(e) {
+        if (e.target == e.currentTarget && e.originalEvent.propertyName == 'transform') {
+          placeholder$.off('transitionend', destroyPlaceholderFn);
+          wrapper$.removeClass('active');
+          window.setTimeout(function() {
+            placeholder$.remove();
+          }, 0);
+        }
       }
 
       placeholder$.on('transitionend', destroyPlaceholderFn);
