@@ -267,8 +267,6 @@ jQuery(document).ready(function($){
  *   load content
  *   resize support
  *   history
- * Change css for new classes
- * Does find find the current element?
  */
 jQuery(document).ready(function($){
   $('.page-card-grid .page-card-target').on('click', function(e) {
