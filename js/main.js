@@ -7,7 +7,7 @@ jQuery(document).ready(function($){
 		opacitySpeed = 1;
 
 	//update this value if you change this breakpoint in the style.css file (or _layout.scss if you use SASS)
-	var MQ = 1170;
+	var MQ = 767;
 
 	triggerAnimation();
 	$(window).on('resize', function(){

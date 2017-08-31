@@ -718,7 +718,7 @@ footer{
   perspective: 1500px;
   /* Allow the contents to cover other items on the page. */
   z-index: 10;
-  
+
   .page-card-target.active {
     opacity: 0;
   }
@@ -1044,8 +1044,9 @@ footer{
   ul{
     padding-left: 0;
     list-style: none;
+    margin-top: 24px;
     li{
-      line-height: 2;
+      margin-bottom: 16px;
     }
   }
 }
@@ -1120,11 +1121,13 @@ footer{
         // margin-bottom: 30px;
         .date{
           float: left;
+          font-style: italic;
         }
         .location{
           float: right;
         }
       }
+
       h3{
         clear: both;
         font-size: 22px;
@@ -1143,6 +1146,25 @@ footer{
         padding-left: 0px;
         li{
           margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  #timeline {
+    .timeline-block {
+      .timeline-content {
+        p{
+          // margin-bottom: 30px;
+          .date{
+            float: none;
+            display: block;
+          }
+          .location{
+            float: none;
+            display: block;
+          }
         }
       }
     }
@@ -1223,10 +1245,9 @@ footer{
 .project-intro{
   position: relative;
   margin: 0 auto;
-  min-height: 560px;
   width: 100%;
   height: 100vh;
-  min-height: 600px;
+  z-index: -1;
   &.right{
     .project-intro-image{
       &::before{
@@ -1409,6 +1430,32 @@ footer{
     }
   }
 }
+.project-intro-text-mobile{
+  background-color: $background-color;
+  padding: 15px;
+  margin-top: -150px;
+  z-index: 1;
+  display: none;
+}
+@media only screen and (max-width: 767px){
+  .project-intro-text-mobile{
+    display: block;
+  }
+}
+@media only screen and (max-width: 575px){
+  .project-process{
+    .page-section{
+      .step-wrapper{
+        &::before {
+          display: none;
+        }
+      }
+      .step-icon{
+        display: none;
+      }
+    }
+  }
+}
 .project-process{
   background-color: $background-color;
   padding-bottom: 50px;
@@ -1422,7 +1469,7 @@ footer{
         height: 100%;
         width: 2px;
         background: #e6e6e6;
-        left: 14px;
+        left: 30px;
       }
     }
     h5{
@@ -1441,11 +1488,11 @@ footer{
       }
     }
     .step-icon{
-      width: 30px;
+      width: 32px;
       margin-right: 20px;
       background-color: $background-color;
       z-index: 5;
-      padding: 5px;
+      padding: 4px;
     }
     .image-slider{
       width: 100%;
@@ -1507,6 +1554,20 @@ footer{
           // -webkit-font-smoothing: antialiased;
           // -moz-osx-font-smoothing: grayscale;
         }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 575px){
+  .project-process{
+    .page-section{
+      .step-wrapper{
+        &::before {
+          display: none;
+        }
+      }
+      .step-icon{
+        display: none;
       }
     }
   }
