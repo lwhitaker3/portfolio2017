@@ -291,7 +291,7 @@ jQuery(document).ready(function($){
 jQuery(document).ready(function($){
   $('.page-card-grid .page-card-target').on('click', function(e) {
     var wrapper$ = $(e.currentTarget);
-    console.log(wrapper$.data('pagePath'));
+    loadContentIntoPage(wrapper$);
     var grid$ = wrapper$.parents('.page-card-grid');
     var content$ = wrapper$.find('.page-card-content').addBack('.page-card-content');
     var clone$ = content$.clone();
@@ -388,6 +388,12 @@ jQuery(document).ready(function($){
     });
 
     return initialPosition;
+  }
+
+  function loadContentIntoPage(wrapper$) {
+    if (wrapper$.data('pagePath')) {
+      $('#project-page-content').load(wrapper$.data('pagePath') + ' #project-page-content');
+    }
   }
 });
 
