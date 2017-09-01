@@ -575,9 +575,10 @@ footer {
 
 .page-card-grid {
   position: relative;
-  perspective: 1500px;
-  /* Allow the contents to cover other items on the page. */
-  z-index: 10; }
+  perspective: 1500px; }
+  .page-card-grid.active {
+    /* Allow the contents to cover other items on the page. */
+    z-index: 10; }
   .page-card-grid .page-card-target.active {
     opacity: 0; }
 

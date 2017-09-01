@@ -282,11 +282,9 @@ jQuery(document).ready(function($){
 });
 
 // Based on https://tympanus.net/codrops/2014/03/27/3d-grid-effect/
-/*
- * TODO(creisman):
- *   resize support
- */
 jQuery(document).ready(function($){
+  var resizeFunction = null;
+
   $('.page-card-grid .page-card-target').on('click', function(e) {
     var wrapper$ = $(e.currentTarget);
     var pagePath = wrapper$.data('pagePath');
@@ -300,7 +298,6 @@ jQuery(document).ready(function($){
     if (pagePath) {
       $('#project-page-content').load(pagePath + ' #project-page-content');
     }
-    var grid$ = wrapper$.parents('.page-card-grid');
     var content$ = wrapper$.find('.page-card-content').addBack('.page-card-content');
     var clone$ = content$.clone();
 
@@ -308,6 +305,7 @@ jQuery(document).ready(function($){
     back$.addClass('back');
     back$.html('&nbsp;');
 
+    var grid$ = wrapper$.parents('.page-card-grid');
     var placeholder$ = $(document.createElement('div'));
     placeholder$.addClass('placeholder');
 
@@ -315,6 +313,7 @@ jQuery(document).ready(function($){
     placeholder$.append(back$);
     grid$.append(placeholder$);
     wrapper$.addClass('active');
+    grid$.addClass('active');
 
     placeholder$.css(getInitialCardPosition(wrapper$, content$));
 
@@ -322,7 +321,7 @@ jQuery(document).ready(function($){
      * Set the new final values after a delay. The delay makes sure the rendering was completed,
      * otherwise the transition wouldn't register for the starting state.
      */
-    window.setTimeout(function() {
+    resizeFunction = function() {
       var gridOffset = grid$.offset();
       placeholder$.addClass('page-animate-in');
       placeholder$.css({
@@ -332,7 +331,9 @@ jQuery(document).ready(function($){
         height: document.documentElement.clientHeight,
         width: document.documentElement.clientWidth
       });
-    }, 20);
+    }
+
+    setTimeout(resizeFunction, 20);
 
     function showPageContentFn(e) {
       if (e.target == e.currentTarget && e.originalEvent.propertyName == 'transform') {
@@ -353,11 +354,18 @@ jQuery(document).ready(function($){
   });
   
   function closePage() {
+    resizeFunction = null;
     $('#project-page-content-wrapper').removeClass('visible');
+    $('#project-page-content').empty();
     var wrapper$ = $('.page-card-grid .page-card-target.active');
-    var content$ = wrapper$.find('.page-card-content').addBack('.page-card-content');
 
+    var content$ = wrapper$.find('.page-card-content').addBack('.page-card-content');
     var placeholder$ = $('.page-card-grid .placeholder');
+
+    // No placeholder, nothing to close.
+    if (!placeholder$.length) {
+      return;
+    }
 
     setTimeout(function() {
       placeholder$.css(getInitialCardPosition(wrapper$, content$));
@@ -367,7 +375,9 @@ jQuery(document).ready(function($){
 
       function destroyPlaceholderFn(e) {
         if (e.target == e.currentTarget && e.originalEvent.propertyName == 'transform') {
+          var grid$ = wrapper$.parents('.page-card-grid');
           placeholder$.off('transitionend', destroyPlaceholderFn);
+          grid$.removeClass('active');
           wrapper$.removeClass('active');
           window.setTimeout(function() {
             placeholder$.remove();
@@ -405,9 +415,19 @@ jQuery(document).ready(function($){
     return initialPosition;
   }
   
+  $(window).on('resize', function() {
+    if (resizeFunction) {
+      resizeFunction();
+    }
+  });
+
   $(window).on('popstate', function(e) {
     var state = e.originalEvent.state;
-    if (state && state.path && state.path != '/') {
+    if (!state || !state.path) {
+      return;
+    }
+
+    if (state.path != '/') {
       var wrapper$ = $('[data-page-path="' + state.path + '"]');
       loadPage(wrapper$, state.path);
     } else {
