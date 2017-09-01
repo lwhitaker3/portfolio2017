@@ -284,14 +284,22 @@ jQuery(document).ready(function($){
 // Based on https://tympanus.net/codrops/2014/03/27/3d-grid-effect/
 /*
  * TODO(creisman):
- *   load content
  *   resize support
- *   history
  */
 jQuery(document).ready(function($){
   $('.page-card-grid .page-card-target').on('click', function(e) {
     var wrapper$ = $(e.currentTarget);
-    loadContentIntoPage(wrapper$);
+    var pagePath = wrapper$.data('pagePath');
+    history.pushState({
+        path: pagePath
+      }, "", pagePath)
+    loadPage(wrapper$, pagePath);
+  });
+  
+  function loadPage(wrapper$, pagePath) {
+    if (pagePath) {
+      $('#project-page-content').load(pagePath + ' #project-page-content');
+    }
     var grid$ = wrapper$.parents('.page-card-grid');
     var content$ = wrapper$.find('.page-card-content').addBack('.page-card-content');
     var clone$ = content$.clone();
@@ -335,9 +343,16 @@ jQuery(document).ready(function($){
     }
 
     placeholder$.on('transitionend', showPageContentFn);
-  });
+  }
 
   $('#project-page-content-wrapper .close').on('click', function() {
+    history.pushState({
+      path: "/"
+    }, "", "/");
+    closePage();
+  });
+  
+  function closePage() {
     $('#project-page-content-wrapper').removeClass('visible');
     var wrapper$ = $('.page-card-grid .page-card-target.active');
     var content$ = wrapper$.find('.page-card-content').addBack('.page-card-content');
@@ -362,7 +377,7 @@ jQuery(document).ready(function($){
 
       placeholder$.on('transitionend', destroyPlaceholderFn);
     }, 20);
-  });
+  }
 
   function getInitialCardPosition(wrapper$, content$) {
     var gridItem$ = wrapper$.parent();
@@ -389,12 +404,16 @@ jQuery(document).ready(function($){
 
     return initialPosition;
   }
-
-  function loadContentIntoPage(wrapper$) {
-    if (wrapper$.data('pagePath')) {
-      $('#project-page-content').load(wrapper$.data('pagePath') + ' #project-page-content');
+  
+  $(window).on('popstate', function(e) {
+    var state = e.originalEvent.state;
+    if (state && state.path && state.path != '/') {
+      var wrapper$ = $('[data-page-path="' + state.path + '"]');
+      loadPage(wrapper$, state.path);
+    } else {
+      closePage();
     }
-  }
+  });
 });
 
 //END OF RESUME PAGE
